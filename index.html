@@ -1,0 +1,1126 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pawfect - Pet Store</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@600;700;800&display=swap');
+
+:root {
+    --green: #315b42;
+    --cream: #fbf8f1;
+    --ink: #202820;
+    --muted: #748071;
+    --lime: #d8ee9b;
+    --line: #e9e5da;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    background: var(--cream);
+    color: var(--ink);
+    font-family: 'DM Sans', sans-serif;
+}
+
+button, input {
+    font: inherit;
+}
+
+button {
+    cursor: pointer;
+}
+
+.wrap {
+    width: min(1120px, calc(100% - 36px));
+    margin: auto;
+}
+
+/* NAVBAR */
+
+header {
+    position: sticky;
+    top: 0;
+    z-index: 5;
+    background: #fbf8f1ef;
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--line);
+}
+
+.nav {
+    height: 72px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo {
+    font: 800 24px Manrope;
+    color: var(--green);
+    text-decoration: none;
+}
+
+.logo span {
+    display: inline-grid;
+    place-items: center;
+    background: var(--green);
+    color: white;
+    border-radius: 12px;
+    width: 34px;
+    height: 34px;
+    margin-right: 7px;
+}
+
+.links {
+    display: flex;
+    gap: 28px;
+}
+
+.links a {
+    color: var(--ink);
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.links a:hover {
+    color: var(--green);
+}
+
+.cart {
+    border: 0;
+    background: var(--green);
+    color: white;
+    padding: 11px 16px;
+    border-radius: 24px;
+    font-weight: 700;
+}
+
+/* HERO SECTION */
+
+.hero {
+    padding: 65px 0 75px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 35px;
+}
+
+.pill {
+    background: #edf3df;
+    color: var(--green);
+    border-radius: 30px;
+    padding: 9px 14px;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+h1 {
+    font: 800 clamp(43px, 6vw, 72px)/1.05 Manrope;
+    letter-spacing: -3px;
+    margin: 24px 0 18px;
+}
+
+h1 em {
+    color: var(--green);
+    font-style: normal;
+}
+
+.lead {
+    color: var(--muted);
+    font-size: 16px;
+    line-height: 1.8;
+    max-width: 460px;
+}
+
+.btn {
+    display: inline-block;
+    text-decoration: none;
+    border: 0;
+    border-radius: 25px;
+    padding: 14px 21px;
+    font-weight: 700;
+    margin: 12px 8px 0 0;
+}
+
+.primary {
+    background: var(--green);
+    color: white;
+}
+
+.secondary {
+    background: white;
+    color: var(--ink);
+    border: 1px solid var(--line);
+}
+
+.hero-art {
+    position: relative;
+    text-align: center;
+}
+
+.hero-art:before {
+    content: "";
+    position: absolute;
+    background: #e8edda;
+    border-radius: 50%;
+    width: 85%;
+    aspect-ratio: 1;
+    left: 8%;
+    top: 2%;
+}
+
+.hero-art img {
+    position: relative;
+    width: 78%;
+    height: 400px;
+    object-fit: cover;
+    border-radius: 48% 48% 35% 35%;
+    box-shadow: 0 20px 50px #253b281f;
+    animation: float 5s ease-in-out infinite;
+}
+
+.sticker {
+    position: absolute;
+    z-index: 1;
+    background: white;
+    border-radius: 15px;
+    padding: 12px 16px;
+    box-shadow: 0 10px 30px #253b2820;
+    font-weight: 700;
+    font-size: 12px;
+}
+
+.s1 {
+    top: 18%;
+    left: 0;
+}
+
+.s2 {
+    bottom: 15%;
+    right: 0;
+}
+
+@keyframes float {
+    50% {
+        transform: translateY(-12px);
+    }
+}
+
+/* BENEFITS */
+
+.perks {
+    background: #f0eee5;
+    padding: 22px 0;
+}
+
+.perks .wrap {
+    display: flex;
+    justify-content: space-around;
+    gap: 15px;
+    flex-wrap: wrap;
+    color: #586657;
+    font-size: 13px;
+    font-weight: 700;
+}
+
+/* COMMON SECTIONS */
+
+section.content {
+    padding: 70px 0;
+}
+
+.heading {
+    text-align: center;
+    margin-bottom: 28px;
+}
+
+.kicker {
+    color: #81945f;
+    font-size: 11px;
+    letter-spacing: 2px;
+    font-weight: 800;
+    text-transform: uppercase;
+}
+
+.heading h2 {
+    font: 800 clamp(28px, 4vw, 42px) Manrope;
+    letter-spacing: -1.5px;
+    margin: 9px 0;
+}
+
+.heading p {
+    color: var(--muted);
+    margin: 0;
+}
+
+/* CATEGORIES */
+
+.categories {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 14px;
+}
+
+.category {
+    background: white;
+    border: 1px solid var(--line);
+    border-radius: 18px;
+    padding: 20px;
+    text-decoration: none;
+    color: var(--ink);
+    display: flex;
+    align-items: center;
+    gap: 13px;
+    transition: .25s;
+}
+
+.category:hover,
+.card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 16px 35px #253b2815;
+}
+
+.category i {
+    font-style: normal;
+    font-size: 27px;
+    background: #f0f3e7;
+    border-radius: 14px;
+    padding: 12px;
+}
+
+.category strong {
+    display: block;
+    font: 700 14px Manrope;
+}
+
+.category small {
+    color: var(--muted);
+    font-size: 11px;
+}
+
+/* PRODUCT SECTION */
+
+.shop {
+    background: #f4f1e9;
+}
+
+.tools {
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin: 28px 0;
+}
+
+.filters {
+    display: flex;
+    gap: 7px;
+    flex-wrap: wrap;
+}
+
+.filter {
+    border: 1px solid var(--line);
+    background: white;
+    border-radius: 22px;
+    padding: 9px 14px;
+    font-size: 12px;
+    font-weight: 700;
+    color: #667064;
+}
+
+.filter.active,
+.filter:hover {
+    background: var(--green);
+    color: white;
+    border-color: var(--green);
+}
+
+#search {
+    border: 1px solid var(--line);
+    border-radius: 22px;
+    padding: 10px 15px;
+    min-width: 220px;
+    outline: none;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 17px;
+}
+
+.card {
+    background: white;
+    border: 1px solid var(--line);
+    border-radius: 18px;
+    padding: 10px;
+    position: relative;
+    transition: .25s;
+    animation: appear .45s both;
+}
+
+@keyframes appear {
+    from {
+        opacity: 0;
+        transform: translateY(16px);
+    }
+    to {
+        opacity: 1;
+        transform: none;
+    }
+}
+
+.card img {
+    width: 100%;
+    height: 190px;
+    object-fit: cover;
+    border-radius: 13px;
+    background: #eee;
+}
+
+.tag {
+    position: absolute;
+    top: 18px;
+    left: 18px;
+    background: var(--lime);
+    border-radius: 20px;
+    padding: 6px 9px;
+    font-size: 10px;
+    font-weight: 800;
+}
+
+.heart {
+    position: absolute;
+    right: 17px;
+    top: 16px;
+    border: 0;
+    background: white;
+    border-radius: 50%;
+    width: 31px;
+    height: 31px;
+    font-size: 17px;
+}
+
+.heart.liked {
+    color: #df6a67;
+}
+
+.info {
+    padding: 12px 3px 4px;
+}
+
+.type {
+    font-size: 10px;
+    color: #899487;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 800;
+}
+
+.info h3 {
+    font: 700 14px Manrope;
+    margin: 6px 0;
+}
+
+.bottom {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 12px;
+}
+
+.price {
+    font-weight: 800;
+}
+
+.price del {
+    color: #9da69a;
+    font-size: 11px;
+    font-weight: 400;
+}
+
+.add {
+    border: 0;
+    background: #edf2e5;
+    color: var(--green);
+    border-radius: 50%;
+    width: 34px;
+    height: 34px;
+    font-size: 21px;
+}
+
+.add:hover {
+    background: var(--green);
+    color: white;
+}
+
+/* PROMO */
+
+.promo {
+    background: var(--green);
+    color: white;
+    border-radius: 25px;
+    padding: 38px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    margin: 65px auto;
+}
+
+.promo h2 {
+    font: 800 30px Manrope;
+    margin: 8px 0;
+}
+
+.promo p {
+    color: #dce5d9;
+    margin: 0;
+}
+
+.promo .btn {
+    background: var(--lime);
+    color: var(--green);
+    white-space: nowrap;
+}
+
+/* FOOTER */
+
+footer {
+    background: #202d24;
+    color: white;
+    padding: 38px 0;
+    text-align: center;
+}
+
+footer p {
+    color: #b7c2b6;
+    font-size: 12px;
+}
+
+/* CART */
+
+.toast {
+    position: fixed;
+    bottom: 22px;
+    left: 50%;
+    transform: translate(-50%, 30px);
+    opacity: 0;
+    background: #243e2d;
+    color: white;
+    padding: 13px 20px;
+    border-radius: 30px;
+    transition: .3s;
+    z-index: 20;
+    font-size: 13px;
+}
+
+.toast.show {
+    opacity: 1;
+    transform: translate(-50%, 0);
+}
+
+.overlay {
+    position: fixed;
+    inset: 0;
+    background: #14251dcc;
+    z-index: 10;
+    opacity: 0;
+    visibility: hidden;
+    transition: .25s;
+}
+
+.overlay.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+.drawer {
+    position: fixed;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    width: min(390px, 100%);
+    background: var(--cream);
+    z-index: 11;
+    padding: 22px;
+    transform: translateX(105%);
+    transition: .3s;
+    display: flex;
+    flex-direction: column;
+}
+
+.drawer.show {
+    transform: none;
+}
+
+.drawer-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid var(--line);
+}
+
+.drawer h3 {
+    font: 800 22px Manrope;
+}
+
+.close {
+    border: 0;
+    background: white;
+    border-radius: 50%;
+    font-size: 22px;
+    width: 35px;
+    height: 35px;
+}
+
+.items {
+    flex: 1;
+    overflow: auto;
+}
+
+.item {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    padding: 13px 0;
+    border-bottom: 1px solid var(--line);
+}
+
+.item img {
+    width: 62px;
+    height: 62px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.item div {
+    flex: 1;
+    font-size: 13px;
+}
+
+.item small {
+    display: block;
+    color: var(--muted);
+}
+
+.qty button {
+    border: 1px solid var(--line);
+    background: white;
+    border-radius: 50%;
+    width: 24px;
+    height: 24px;
+}
+
+.total {
+    border-top: 1px solid var(--line);
+    padding-top: 15px;
+    font-weight: 800;
+    display: flex;
+    justify-content: space-between;
+}
+
+.checkout {
+    width: 100%;
+    margin-top: 14px;
+}
+
+/* MOBILE RESPONSIVE */
+
+@media(max-width:800px) {
+    .hero {
+        grid-template-columns: 1fr;
+        padding: 40px 0;
+    }
+
+    .hero-art {
+        grid-row: 1;
+    }
+
+    .hero-art img {
+        height: 320px;
+    }
+
+    .categories {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media(max-width:520px) {
+    .links {
+        display: none;
+    }
+
+    .hero-art img {
+        height: 275px;
+    }
+
+    .grid {
+        gap: 9px;
+    }
+
+    .card img {
+        height: 140px;
+    }
+
+    .info h3 {
+        font-size: 12px;
+    }
+
+    .categories {
+        gap: 9px;
+    }
+
+    .category {
+        padding: 12px;
+    }
+
+    .category i {
+        font-size: 20px;
+        padding: 9px;
+    }
+
+    .promo {
+        padding: 25px;
+        display: block;
+    }
+
+    .promo h2 {
+        font-size: 25px;
+    }
+
+    .perks .wrap {
+        justify-content: flex-start;
+    }
+
+    .tools {
+        display: block;
+    }
+
+    #search {
+        width: 100%;
+        margin-top: 12px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <div class="wrap nav">
+        <a class="logo" href="#"><span>🐾</span> pawfect.</a>
+
+        <nav class="links">
+            <a href="#shop">Shop</a>
+            <a href="#categories">Categories</a>
+            <a href="#about">Our promise</a>
+        </nav>
+
+        <button class="cart" id="openCart">
+            🛒 Cart <b id="count">0</b>
+        </button>
+    </div>
+</header>
+
+<main>
+
+<!-- HERO -->
+
+<div class="wrap hero">
+    <div>
+        <span class="pill">✦ Everything for happy pets</span>
+
+        <h1>Little things.<br>Big <em>tail wags.</em></h1>
+
+        <p class="lead">
+            Thoughtful treats, playful toys and everyday essentials
+            for the furry family members who make life brighter.
+        </p>
+
+        <a class="btn primary" href="#shop">Explore the shop →</a>
+        <a class="btn secondary" href="#categories">Browse categories</a>
+
+        <p style="font-size:12px;color:#778274;margin-top:25px">
+            ⭐ ⭐ ⭐ ⭐ ⭐ Loved by pet parents everywhere
+        </p>
+    </div>
+
+    <div class="hero-art">
+        <span class="sticker s1">🌿 Carefully picked</span>
+        <img src="https://images.unsplash.com/photo-1543466835-00a7907e9de1?auto=format&fit=crop&w=900&q=85" alt="Happy dog">
+        <span class="sticker s2">♡ Made for happy tails</span>
+    </div>
+</div>
+
+<!-- BENEFITS -->
+
+<div class="perks">
+    <div class="wrap">
+        <span>🚚 Free shipping over ₹999</span>
+        <span>🌱 Pet-friendly picks</span>
+        <span>↩️ Easy 7-day returns</span>
+        <span>💛 Made with love</span>
+    </div>
+</div>
+
+<!-- CATEGORIES -->
+
+<section class="content" id="categories">
+    <div class="wrap">
+
+        <div class="heading">
+            <div class="kicker">Find their favourites</div>
+            <h2>Shop by category</h2>
+            <p>Good stuff for every kind of good boy and girl.</p>
+        </div>
+
+        <div class="categories">
+            <a class="category" href="#shop" data-cat="Dogs">
+                <i>🐶</i>
+                <span><strong>For dogs</strong><small>Toys, treats & more</small></span>
+            </a>
+
+            <a class="category" href="#shop" data-cat="Cats">
+                <i>🐱</i>
+                <span><strong>For cats</strong><small>Curious cat essentials</small></span>
+            </a>
+
+            <a class="category" href="#shop" data-cat="Small pets">
+                <i>🐹</i>
+                <span><strong>Small pets</strong><small>Little necessities</small></span>
+            </a>
+
+            <a class="category" href="#shop" data-cat="Accessories">
+                <i>🎀</i>
+                <span><strong>Accessories</strong><small>Extra-special details</small></span>
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- PRODUCTS -->
+
+<section class="content shop" id="shop">
+    <div class="wrap">
+
+        <div class="heading">
+            <div class="kicker">The good stuff</div>
+            <h2>Pet parent favourites</h2>
+            <p>Handpicked essentials for everyday adventures.</p>
+        </div>
+
+        <div class="tools">
+            <div class="filters" id="filters">
+                <button class="filter active" data-filter="All">All products</button>
+                <button class="filter" data-filter="Dogs">Dogs</button>
+                <button class="filter" data-filter="Cats">Cats</button>
+                <button class="filter" data-filter="Small pets">Small pets</button>
+                <button class="filter" data-filter="Accessories">Accessories</button>
+            </div>
+
+            <input id="search" type="search" placeholder="⌕ Search products...">
+        </div>
+
+        <div class="grid" id="products"></div>
+    </div>
+</section>
+
+<!-- PROMOTION -->
+
+<div class="wrap">
+    <div class="promo" id="about">
+        <div>
+            <div class="kicker" style="color:var(--lime)">
+                A little treat for your first order
+            </div>
+
+            <h2>Good pets deserve<br>great surprises.</h2>
+
+            <p>Get 10% off your first order with code <b>PAWLOVE10</b>.</p>
+        </div>
+
+        <a class="btn" href="#shop">Find their favourite →</a>
+    </div>
+</div>
+
+</main>
+
+<!-- FOOTER -->
+
+<footer>
+    <div class="wrap">
+        <a class="logo" style="color:white" href="#">
+            <span>🐾</span> pawfect.
+        </a>
+
+        <p>A happy little corner for pets and the people who love them.</p>
+
+        <small>© 2025 Pawfect Pet Store · Made with ♡ for pets</small>
+    </div>
+</footer>
+
+<!-- SHOPPING CART -->
+
+<div class="overlay" id="overlay"></div>
+
+<aside class="drawer" id="drawer">
+    <div class="drawer-head">
+        <h3>Your little cart 🐾</h3>
+        <button class="close" id="closeCart">×</button>
+    </div>
+
+    <div class="items" id="items"></div>
+
+    <div class="total">
+        <span>Subtotal</span>
+        <span id="total">₹0</span>
+    </div>
+
+    <button class="btn primary checkout" id="checkout">
+        Continue to checkout →
+    </button>
+
+    <small style="text-align:center;color:var(--muted)">
+        Demo store — payment is not connected.
+    </small>
+</aside>
+
+<div class="toast" id="toast"></div>
+
+<script>
+
+// PRODUCT DATA
+
+const data = [
+    [1, "Happy Tails Rope Toy", "Dogs", 349, 449, "Bestseller",
+    "https://images.unsplash.com/photo-1535294435445-d7c2ac7a2fb3?auto=format&fit=crop&w=600&q=80"],
+
+    [2, "Cozy Cloud Cat Bed", "Cats", 899, 1099, "Soft & cosy",
+    "https://images.unsplash.com/photo-1513360371669-4adf3dd7dff8?auto=format&fit=crop&w=600&q=80"],
+
+    [3, "Crunchy Chicken Bites", "Dogs", 279, 0, "Fan favourite",
+    "https://images.unsplash.com/photo-1582798358481-d199fb7347bb?auto=format&fit=crop&w=600&q=80"],
+
+    [4, "Feather Wand Teaser", "Cats", 199, 249, "Play time",
+    "https://images.unsplash.com/photo-1573865526739-10659fec78a5?auto=format&fit=crop&w=600&q=80"],
+
+    [5, "Tiny Paws Hideout", "Small pets", 599, 699, "Little hideaway",
+    "https://images.unsplash.com/photo-1425082661705-1834bfd09dca?auto=format&fit=crop&w=600&q=80"],
+
+    [6, "Everyday Walk Set", "Accessories", 749, 899, "New",
+    "https://images.unsplash.com/photo-1551717743-49959800b1f6?auto=format&fit=crop&w=600&q=80"],
+
+    [7, "Purrfect Ceramic Bowl", "Cats", 399, 0, "Daily essential",
+    "https://images.unsplash.com/photo-1573865526739-10659fec78a5?auto=format&fit=crop&w=600&q=80"],
+
+    [8, "Adventure Pup Bandana", "Accessories", 299, 399, "Cute pick",
+    "https://images.unsplash.com/photo-1583337130417-3346a1be7dee?auto=format&fit=crop&w=600&q=80"]
+];
+
+let filter = "All";
+let search = "";
+let cart = {};
+
+const $ = id => document.getElementById(id);
+
+const rupees = n => "₹" + n.toLocaleString("en-IN");
+
+// DISPLAY PRODUCTS
+
+function render() {
+
+    let list = data.filter(p =>
+        (filter === "All" || p[2] === filter) &&
+        (p[1].toLowerCase().includes(search) ||
+         p[2].toLowerCase().includes(search))
+    );
+
+    $("products").innerHTML = list.length
+        ? list.map((p, i) => `
+            <article class="card" style="animation-delay:${i * 50}ms">
+
+                <span class="tag">${p[5]}</span>
+
+                <button class="heart" aria-label="Wishlist"
+                    onclick="this.classList.toggle('liked');
+                    this.textContent=this.classList.contains('liked')?'♥':'♡'">
+                    ♡
+                </button>
+
+                <img src="${p[6]}" alt="${p[1]}" loading="lazy"
+                    onerror="this.style.display='none'">
+
+                <div class="info">
+                    <div class="type">${p[2]}</div>
+                    <h3>${p[1]}</h3>
+
+                    <div class="bottom">
+                        <span class="price">
+                            ${rupees(p[3])}
+                            ${p[4] ? `<del>${rupees(p[4])}</del>` : ""}
+                        </span>
+
+                        <button class="add" onclick="add(${p[0]})">+</button>
+                    </div>
+                </div>
+            </article>
+        `).join("")
+        : '<p style="grid-column:1/-1;text-align:center;padding:30px">No products found. Try another search 🐾</p>';
+}
+
+// TOAST MESSAGE
+
+function say(msg) {
+    $("toast").textContent = msg;
+    $("toast").classList.add("show");
+
+    setTimeout(() => {
+        $("toast").classList.remove("show");
+    }, 2100);
+}
+
+// ADD TO CART
+
+function add(id) {
+    cart[id] = (cart[id] || 0) + 1;
+    update();
+    say("Added to your cart! 🐾");
+}
+
+// UPDATE CART
+
+function update() {
+
+    let entries = Object.entries(cart);
+
+    let qty = entries.reduce((s, [, n]) => s + n, 0);
+
+    let sum = entries.reduce((s, [id, n]) =>
+        s + data.find(p => p[0] == id)[3] * n, 0
+    );
+
+    $("count").textContent = qty;
+    $("total").textContent = rupees(sum);
+
+    $("items").innerHTML = entries.length
+        ? entries.map(([id, n]) => {
+
+            let p = data.find(x => x[0] == id);
+
+            return `
+                <div class="item">
+                    <img src="${p[6]}" alt="">
+
+                    <div>
+                        <b>${p[1]}</b>
+                        <small>${rupees(p[3])} each</small>
+
+                        <p class="qty">
+                            <button onclick="change(${id},-1)">−</button>
+                            ${n}
+                            <button onclick="change(${id},1)">+</button>
+                        </p>
+                    </div>
+                </div>
+            `;
+
+        }).join("")
+        : '<p style="text-align:center;color:var(--muted);padding:35px 5px">Your cart is waiting for some love 💛</p>';
+}
+
+// CHANGE PRODUCT QUANTITY
+
+function change(id, n) {
+    cart[id] += n;
+
+    if (cart[id] <= 0) {
+        delete cart[id];
+    }
+
+    update();
+}
+
+// OPEN AND CLOSE CART
+
+function showCart(value) {
+    $("overlay").classList.toggle("show", value);
+    $("drawer").classList.toggle("show", value);
+}
+
+$("openCart").onclick = () => showCart(true);
+
+$("closeCart").onclick = () => showCart(false);
+
+$("overlay").onclick = () => showCart(false);
+
+$("checkout").onclick = () =>
+    say("Demo checkout — connect a payment gateway to accept orders.");
+
+// CATEGORY FILTERS
+
+$("filters").onclick = e => {
+
+    let b = e.target.closest("[data-filter]");
+
+    if (!b) return;
+
+    filter = b.dataset.filter;
+
+    document.querySelectorAll(".filter").forEach(x =>
+        x.classList.toggle("active", x === b)
+    );
+
+    render();
+};
+
+// CATEGORY CARDS
+
+document.querySelectorAll("[data-cat]").forEach(a => {
+
+    a.onclick = () => {
+
+        filter = a.dataset.cat;
+
+        document.querySelectorAll(".filter").forEach(x =>
+            x.classList.toggle("active", x.dataset.filter === filter)
+        );
+
+        render();
+    };
+
+});
+
+// SEARCH PRODUCTS
+
+$("search").oninput = e => {
+    search = e.target.value.toLowerCase().trim();
+    render();
+};
+
+// INITIALIZE
+
+render();
+update();
+
+</script>
+
+</body>
+</html>
